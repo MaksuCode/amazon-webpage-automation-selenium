@@ -1,0 +1,5 @@
+tr\com\amazon\pages\HomePage.class
+tr\com\amazon\product\Product.class
+tr\com\amazon\testrunner\TestRunner.class
+tr\com\amazon\pages\LoginPage.class
+tr\com\amazon\user\User.class
