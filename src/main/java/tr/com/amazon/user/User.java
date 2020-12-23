@@ -54,6 +54,7 @@ public class User extends TestRunner {
     public String getPassword() {
         return password;
     }
+
 }
 
 

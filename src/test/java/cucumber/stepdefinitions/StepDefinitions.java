@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import tr.com.amazon.model.Converter;
+import tr.com.amazon.pages.BasePage;
 import tr.com.amazon.pages.HomePage;
 import tr.com.amazon.pages.LoginPage;
 import tr.com.amazon.testrunner.TestRunner;
@@ -22,7 +23,8 @@ public class StepDefinitions extends TestRunner {
 
     @Given("User goes to {string}")
     public void userGoesToPage(String pageName) {
-        user.goesTo(cnv.strToPage(pageName));
+        BasePage page = cnv.strToPage(pageName);
+        user.goesTo(page);
     }
 
     @And("Clicks login button")
@@ -52,7 +54,8 @@ public class StepDefinitions extends TestRunner {
 
     @And("Clicks keep on button")
     public void clicksKeepOnButton() {
-        user.clicks(loginPage.getKeepOnButton());
+        WebElement keepOnButton = loginPage.getKeepOnButton();
+        user.clicks(keepOnButton);
     }
 
     @Then("User sees password blank on the page")
