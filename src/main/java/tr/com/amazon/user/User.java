@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import tr.com.amazon.pages.BasePage;
 import tr.com.amazon.testrunner.TestRunner;
 
+import java.sql.DriverManager;
+
 
 public class User extends TestRunner {
 
@@ -37,13 +39,26 @@ public class User extends TestRunner {
 
     public boolean sees(WebElement elementToBeSeen){
         boolean seenOrNot = false;
+        if (elementToBeSeen == null){
+            return false;
+        }
         if (elementToBeSeen.isEnabled()){
             seenOrNot = true;
         }
         return seenOrNot;
     }
 
+    public boolean checks(WebElement elementWithString ,String str){
+        boolean seenOrNot = false;
+        if (elementWithString.getText().equals(str)){
+            seenOrNot = true;
+        }
+        return seenOrNot;
+    }
+
+
     public void types(String str , WebElement typingSpace){
+        typingSpace.clear();
         typingSpace.sendKeys(str);
     }
 

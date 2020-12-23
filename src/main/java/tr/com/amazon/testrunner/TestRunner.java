@@ -1,13 +1,21 @@
 package tr.com.amazon.testrunner;
 
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.BeforeStep;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import tr.com.amazon.model.DriverManager;
+import tr.com.amazon.model.DriverManagerFactory;
+import tr.com.amazon.model.DriverType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -19,22 +27,23 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestRunner {
 
-    protected static WebDriver driver;
+//    protected static WebDriver driver;
+    private DriverManager driverManager ;
+    public WebDriver driver ;
+
 
     @BeforeClass
-    public static void setUp(){
+    public void setUp(){
 
-        System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        driverManager = DriverManagerFactory.getManager(DriverType.CHROME);
+        driver = driverManager.getDriver();
 
     }
 
 
-
     @AfterClass
-    public static void shutDown(){
-//        driver.quit();
+    public void shutDown(){
+        driverManager.quitDriver();
     }
 
 

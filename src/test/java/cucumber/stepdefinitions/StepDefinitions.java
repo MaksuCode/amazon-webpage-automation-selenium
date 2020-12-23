@@ -85,4 +85,36 @@ public class StepDefinitions extends TestRunner {
     }
 
 
+    @And("User types invalid email address")
+    public void userTypesInvalidEmailAddress() {
+        user.types("mustafaksu5@gmail.com" , loginPage.getMailAddressSpace());
+    }
+
+    @And("User sees login error message")
+    public void userSeesLoginErrorMessage() {
+        WebElement loginErrorMessage = loginPage.getLoginErrorMessage();
+        String loginErrorMessageStr = loginPage.getLoginErrorMessageString();
+        boolean check = user.checks(loginErrorMessage , loginErrorMessageStr);
+        Assert.assertTrue("Error message not seen!" , check);
+    }
+
+    @And("User types invalid password")
+    public void userTypesInvalidPassword() {
+        user.types("12345678" , loginPage.getPasswordSpace());
+    }
+
+
+    @And("User sees one of the login warning messages")
+    public void userSeesOneOfTheLoginWarningMessages() {
+        boolean check1 = user.sees(loginPage.getLoginWarningMessage());
+        boolean check2 = user.sees(loginPage.getLoginWarningMessage2());
+        boolean result = check1 || check2 ;
+        Assert.assertTrue("Neither of the warning messages not seen!" , result);
+    }
+
+    @Then("Quits browser")
+    public void quitsBrowser() {
+        driver.quit();
+        setUp();
+    }
 }
