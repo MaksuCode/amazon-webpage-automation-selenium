@@ -2,8 +2,10 @@
 
 Amazon web page automation with BDD approach
 
+
 ****This is my personal Amazon Web Page Automation project using Selenium Web driver.***
 
+-Used WebDriver Factory Patterm
 -Used Junit
 -Used Cucumber and Gherkin syntax
 -Tried to write according to POM (Page Objec Model)
