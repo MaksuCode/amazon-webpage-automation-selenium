@@ -2,6 +2,7 @@ package tr.com.amazon.user;
 
 import org.openqa.selenium.WebElement;
 import tr.com.amazon.pages.BasePage;
+import tr.com.amazon.pages.HomePage;
 import tr.com.amazon.testrunner.TestRunner;
 
 import java.sql.DriverManager;
@@ -48,6 +49,12 @@ public class User extends TestRunner {
         return seenOrNot;
     }
 
+    public boolean sees(String str){
+        boolean seenOrNot = false;
+
+        return seenOrNot;
+    }
+
     public boolean checks(WebElement elementWithString ,String str){
         boolean seenOrNot = false;
         if (elementWithString.getText().equals(str)){
@@ -55,6 +62,15 @@ public class User extends TestRunner {
         }
         return seenOrNot;
     }
+
+    public boolean checks(String expected ,String recent ){
+        boolean check = false;
+        if (expected.equals(recent)){
+            check = true;
+        }
+        return check ;
+    }
+
 
 
     public void types(String str , WebElement typingSpace){

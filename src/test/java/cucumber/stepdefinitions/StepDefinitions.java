@@ -9,8 +9,12 @@ import tr.com.amazon.model.Converter;
 import tr.com.amazon.pages.BasePage;
 import tr.com.amazon.pages.HomePage;
 import tr.com.amazon.pages.LoginPage;
+import tr.com.amazon.pages.ProductPage;
+import tr.com.amazon.product.Product;
 import tr.com.amazon.testrunner.TestRunner;
 import tr.com.amazon.user.User;
+
+import java.util.List;
 
 public class StepDefinitions extends TestRunner {
 
@@ -20,6 +24,7 @@ public class StepDefinitions extends TestRunner {
     Converter cnv = new Converter();
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
+    ProductPage productPage = new ProductPage();
 
     @Given("User goes to {string}")
     public void userGoesToPage(String pageName) {
@@ -116,5 +121,30 @@ public class StepDefinitions extends TestRunner {
     public void quitsBrowser() {
         driver.quit();
         setUp();
+    }
+
+    @Given("User clicks {int} category")
+    public void userClicksCategory(int categoryIndex) {
+        List<WebElement> categoryElements = homePage.getMainNavBarElements();
+        user.clicks(categoryElements.get(categoryIndex - 1));
+    }
+
+    @Given("User goes to product")
+    public void userGoesToProduct() {
+        Product product = new Product();
+        driver.get(product.getProductUrl());
+    }
+
+    @Given("User clicks add to cart button")
+    public void userClicksAddToCartButton() {
+        WebElement addToCartButton = productPage.getAddToCartButton();
+        user.clicks(addToCartButton);
+    }
+
+    @Then("User sees {string} count on the basket")
+    public void userSeesCountOnTheBasket(String expectedCount) {
+        String recentCartCount = homePage.getBasketCount().getText();
+        boolean check = user.checks(recentCartCount , expectedCount);
+        Assert.assertTrue("Cart count is not correct!" , check);
     }
 }

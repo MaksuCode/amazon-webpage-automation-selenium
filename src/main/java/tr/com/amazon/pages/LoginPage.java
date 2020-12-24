@@ -7,13 +7,13 @@ import sun.awt.windows.WEmbeddedFrame;
 
 public class LoginPage extends BasePage{
 
-    private By mailAddressSpace = new By.ByCssSelector("div.a-row.a-spacing-base input");
-    private By keepOnButton = new By.ByCssSelector("span.a-button-inner input");
-    private By passwordSpace = By.id("ap_password");
-    private By loginButton = By.id("signInSubmit") ;
-    private By loginErrorMessage = new By.ByCssSelector("div.a-alert-content li span");
-    private By loginWarningMessage = new By.ByCssSelector("div.a-section div.a-box.a-alert-error");
-    private By loginWarningMessage2 = new By.ByCssSelector("div.a-section div.a-box.a-alert-warning");
+    private final By mailAddressSpace = new By.ByCssSelector("div.a-row.a-spacing-base input");
+    private final By keepOnButton = new By.ByCssSelector("span.a-button-inner input");
+    private final By passwordSpace = By.id("ap_password");
+    private final By loginButton = By.id("signInSubmit") ;
+    private final By loginErrorMessage = new By.ByCssSelector("div.a-alert-content li span");
+    private final By loginWarningMessage = new By.ByCssSelector("div.a-section div.a-box.a-alert-error");
+    private final By loginWarningMessage2 = new By.ByCssSelector("div.a-section div.a-box.a-alert-warning");
 
     private String loginErrorMessageString = "Bu e-posta adresiyle bir hesap bulamıyoruz";
 
