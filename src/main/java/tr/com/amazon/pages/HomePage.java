@@ -16,6 +16,8 @@ public class HomePage extends BasePage {
     private final By hamburgerMenu = new By.ByCssSelector("div.nav-left a i");
     private final By mainNavBar = new By.ByCssSelector("div.nav-fill div.nav-progressive-content a");
     private final By basketCount = new By.ByCssSelector("a.nav-a div span.nav-cart-count");
+    private final By searchDropDownBox = By.id("searchDropdownBox");
+    private final By searchTextBox = By.id("twotabsearchtextbox");
 
 
     public WebElement getLoginButton() {
@@ -42,6 +44,13 @@ public class HomePage extends BasePage {
         return driver.findElement(basketCount);
     }
 
+    public WebElement getsearchDropDownBox() {
+        return driver.findElement(searchDropDownBox);
+    }
+
+    public WebElement getSearchTextBox() {
+        return driver.findElement(searchTextBox);
+    }
 }
 
 

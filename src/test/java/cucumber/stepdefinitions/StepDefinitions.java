@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import tr.com.amazon.model.Converter;
 import tr.com.amazon.pages.BasePage;
 import tr.com.amazon.pages.HomePage;
@@ -14,6 +15,7 @@ import tr.com.amazon.product.Product;
 import tr.com.amazon.testrunner.TestRunner;
 import tr.com.amazon.user.User;
 
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 public class StepDefinitions extends TestRunner {
@@ -146,5 +148,36 @@ public class StepDefinitions extends TestRunner {
         String recentCartCount = homePage.getBasketCount().getText();
         boolean check = user.checks(recentCartCount , expectedCount);
         Assert.assertTrue("Cart count is not correct!" , check);
+    }
+
+    @And("User clicks search box")
+    public void userClicksSearchBox() {
+        WebElement searchTextBox = homePage.getSearchTextBox();
+        user.clicks(searchTextBox);
+    }
+
+    @And("User types {string}")
+    public void userTypes(String str) {
+        WebElement searchTextBox = homePage.getSearchTextBox();
+        user.types(str , searchTextBox);
+    }
+
+    @And("User hits enter button")
+    public void userHitsEnterButton() {
+        user.hitsKey(KeyEvent.VK_ENTER);
+    }
+
+    @Then("User sees he is on the products page")
+    public void userSeesHeIsOnTheProductsPage() {
+//        user.sees()
+    }
+
+    @And("User clicks a product")
+    public void userClicksAProduct() {
+        
+    }
+
+    @Then("User sees he is on the product page")
+    public void userSeesHeIsOnTheProductDetailsPage() {
     }
 }

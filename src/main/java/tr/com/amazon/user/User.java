@@ -1,11 +1,13 @@
 package tr.com.amazon.user;
 
+import io.cucumber.java.eo.Se;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import tr.com.amazon.pages.BasePage;
-import tr.com.amazon.pages.HomePage;
 import tr.com.amazon.testrunner.TestRunner;
 
-import java.sql.DriverManager;
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 
 public class User extends TestRunner {
@@ -49,12 +51,6 @@ public class User extends TestRunner {
         return seenOrNot;
     }
 
-    public boolean sees(String str){
-        boolean seenOrNot = false;
-
-        return seenOrNot;
-    }
-
     public boolean checks(WebElement elementWithString ,String str){
         boolean seenOrNot = false;
         if (elementWithString.getText().equals(str)){
@@ -72,10 +68,33 @@ public class User extends TestRunner {
     }
 
 
-
     public void types(String str , WebElement typingSpace){
         typingSpace.clear();
         typingSpace.sendKeys(str);
+    }
+
+    public void hitsKey(int keyEvent){
+        try {
+            Robot robot = new Robot();
+            robot.keyPress(keyEvent);
+            robot.keyRelease(keyEvent);
+        }catch (AWTException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void hitsKey(CharSequence key , WebElement element){
+        element.sendKeys(key);
+    }
+
+    public void selectsByIndex(WebElement dropDownMenu ,int index){
+        Select select = new Select(dropDownMenu);
+        select.selectByIndex(index);
+    }
+
+    public void selectsByText(WebElement dropDownMenu , String text){
+        Select select = new Select(dropDownMenu);
+        select.selectByVisibleText(text);
     }
 
     public String getMailAddress() {
@@ -85,6 +104,7 @@ public class User extends TestRunner {
     public String getPassword() {
         return password;
     }
+
 
 }
 
