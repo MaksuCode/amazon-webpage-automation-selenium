@@ -1,10 +1,7 @@
 package tr.com.amazon.pages;
 
-import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 
@@ -15,9 +12,10 @@ public class HomePage extends BasePage {
     private final By loginMessage = new By.ByCssSelector("div.nav-line-1-container span.nav-line-1");
     private final By hamburgerMenu = new By.ByCssSelector("div.nav-left a i");
     private final By mainNavBar = new By.ByCssSelector("div.nav-fill div.nav-progressive-content a");
-    private final By basketCount = new By.ByCssSelector("a.nav-a div span.nav-cart-count");
+    private final By cartCount = new By.ByCssSelector("a.nav-a div span.nav-cart-count");
     private final By searchDropDownBox = By.id("searchDropdownBox");
     private final By searchTextBox = By.id("twotabsearchtextbox");
+    private final By goToCartButton = By.id("nav-cart-count");
 
 
     public WebElement getLoginButton() {
@@ -40,8 +38,8 @@ public class HomePage extends BasePage {
         return driver.findElements(mainNavBar) ;
     }
 
-    public WebElement getBasketCount() {
-        return driver.findElement(basketCount);
+    public WebElement getCartCount() {
+        return driver.findElement(cartCount);
     }
 
     public WebElement getsearchDropDownBox() {

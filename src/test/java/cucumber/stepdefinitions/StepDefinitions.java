@@ -4,18 +4,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import tr.com.amazon.model.Converter;
-import tr.com.amazon.pages.BasePage;
-import tr.com.amazon.pages.HomePage;
-import tr.com.amazon.pages.LoginPage;
-import tr.com.amazon.pages.ProductPage;
+import tr.com.amazon.pages.*;
 import tr.com.amazon.product.Product;
 import tr.com.amazon.testrunner.TestRunner;
 import tr.com.amazon.user.User;
 
-import java.awt.event.KeyEvent;
 import java.util.List;
 
 public class StepDefinitions extends TestRunner {
@@ -24,9 +20,11 @@ public class StepDefinitions extends TestRunner {
     String mailAddress = user.getMailAddress();
     String password = user.getPassword();
     Converter cnv = new Converter();
+    BasePage basePage = new BasePage();
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
     ProductPage productPage = new ProductPage();
+    ProductsPage productsPage = new ProductsPage();
 
     @Given("User goes to {string}")
     public void userGoesToPage(String pageName) {
@@ -145,7 +143,7 @@ public class StepDefinitions extends TestRunner {
 
     @Then("User sees {string} count on the basket")
     public void userSeesCountOnTheBasket(String expectedCount) {
-        String recentCartCount = homePage.getBasketCount().getText();
+        String recentCartCount = homePage.getCartCount().getText();
         boolean check = user.checks(recentCartCount , expectedCount);
         Assert.assertTrue("Cart count is not correct!" , check);
     }
@@ -164,20 +162,56 @@ public class StepDefinitions extends TestRunner {
 
     @And("User hits enter button")
     public void userHitsEnterButton() {
-        user.hitsKey(KeyEvent.VK_ENTER);
+//        user.hitsKey(KeyEvent.VK_ENTER);
+        user.hitsKey(Keys.ENTER , homePage.getSearchTextBox());
     }
 
     @Then("User sees he is on the products page")
     public void userSeesHeIsOnTheProductsPage() {
-//        user.sees()
+        WebElement resulSelectDropDown = productsPage.getResultSelectDropDown();
+        boolean check = user.sees(resulSelectDropDown);
+        Assert.assertTrue("User is not on products page!" , check);
     }
 
     @And("User clicks a product")
     public void userClicksAProduct() {
-        
+        WebElement productName = productsPage.getRandomProductElemet();
+        user.clicks(productName);
     }
 
     @Then("User sees he is on the product page")
     public void userSeesHeIsOnTheProductDetailsPage() {
+        WebElement addToCartButton = productPage.getAddToCartButton();
+        boolean check = user.sees(addToCartButton);
+        Assert.assertTrue("User is not is on product page!" , check);
+    }
+
+    @And("User sorts results as {string}")
+    public void userSortsResultsAs(String sortType) {
+        WebElement resultSelectDropDown = productsPage.getResultSelectDropDown();
+        user.selectsByIndex(resultSelectDropDown , 0);
+
+    }
+
+    @And("User accepts cookies if exist")
+    public void userAcceptsCookiesIfExist() {
+        try {
+            WebElement acceptCookiesButton = basePage.getAccepCookiesButton();
+            user.clicks(acceptCookiesButton);
+        }catch (Exception e){
+            System.out.println("Cookies not present!");
+        }
+    }
+
+    @And("User clicks cart")
+    public void userClicksCart() {
+        WebElement cart = homePage.getCartCount();
+        user.clicks(cart);
+    }
+
+    @And("User sets {int} product quantity")
+    public void userSetsProductQuantity(int count) {
+        WebElement productCount = productPage.getProductCount();
+        user.selectsByIndex(productCount , count-1);
     }
 }

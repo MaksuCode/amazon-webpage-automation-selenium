@@ -19,14 +19,14 @@ import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
-//@RunWith(Cucumber.class)
-//@CucumberOptions(
-//        features = {"src/test/resources/features/"},
-//        glue = "cucumber.stepdefinitions",
-//        plugin = {"html:target/cucumber-html-report"},
-//        tags = "@Add_Product_To_Basket",
-//        stepNotifications = true,
-//        publish = true)
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        features = {"src/test/resources/features/"},
+        glue = "cucumber.stepdefinitions",
+        plugin = {"html:target/cucumber-html-report"},
+        tags = "@Add_Product_To_Basket",
+        stepNotifications = true,
+        publish = true)
 
 public class TestRunner {
 
@@ -46,22 +46,22 @@ public class TestRunner {
 //        driverManager.quitDriver();
     }
 
-    @Test
-    public void test()  {
-        driver.get("https://www.amazon.com.tr");
-        HomePage homePage = new HomePage();
-        User user = new User();
-
-        WebElement searchTextBox = homePage.getSearchTextBox();
-        user.clicks(searchTextBox);
-        user.types("Bilgisayar" , searchTextBox);
-        user.hitsKey(Keys.ENTER , searchTextBox);
-
-
-
-
-
-    }
+//    @Test
+//    public void test()  {
+//        driver.get("https://www.amazon.com.tr");
+//        HomePage homePage = new HomePage();
+//        User user = new User();
+//
+//        WebElement searchTextBox = homePage.getSearchTextBox();
+//        user.clicks(searchTextBox);
+//        user.types("Bilgisayar" , searchTextBox);
+//        user.hitsKey(Keys.ENTER , searchTextBox);
+//
+//
+//
+//
+//
+//    }
 
 
 

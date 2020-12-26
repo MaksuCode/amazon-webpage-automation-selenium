@@ -2,12 +2,16 @@ package tr.com.amazon.user;
 
 import io.cucumber.java.eo.Se;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import tr.com.amazon.pages.BasePage;
 import tr.com.amazon.testrunner.TestRunner;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
 
 
 public class User extends TestRunner {
@@ -38,7 +42,9 @@ public class User extends TestRunner {
 
     public void clicks(WebElement elementToBeClicked){
         elementToBeClicked.click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
     }
+
 
     public boolean sees(WebElement elementToBeSeen){
         boolean seenOrNot = false;
@@ -96,6 +102,10 @@ public class User extends TestRunner {
         Select select = new Select(dropDownMenu);
         select.selectByVisibleText(text);
     }
+
+//    public void sortsProducts(WebElement dropDown , ){
+//        selectsByIndex();
+//    }
 
     public String getMailAddress() {
         return mailAddress;
