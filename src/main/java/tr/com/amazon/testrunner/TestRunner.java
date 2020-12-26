@@ -2,6 +2,9 @@ package tr.com.amazon.testrunner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.apache.logging.log4j.core.ErrorHandler;
+import org.apache.logging.log4j.core.appender.ConsoleAppender;
+import org.apache.logging.log4j.core.appender.FileAppender;
 import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -18,17 +21,22 @@ import tr.com.amazon.user.User;
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = {"src/test/resources/features/"},
         glue = "cucumber.stepdefinitions",
         plugin = {"html:target/cucumber-html-report"},
-        tags = "@Add_Product_To_Basket",
+//        tags = "@Add_Product_To_Basket",
         stepNotifications = true,
         publish = true)
 
 public class TestRunner {
+
+    public static Logger logger = Logger.getLogger(TestRunner.class.getName());
 
     private static DriverManager driverManager ;
     public static WebDriver driver ;
@@ -37,7 +45,8 @@ public class TestRunner {
     public static void setUp(){
         driverManager = DriverManagerFactory.getManager(DriverType.CHROME);
         driver = driverManager.getDriver();
-//        driver.manage().window().maximize();
+        driver.manage().window().maximize();
+        logger.info("Test log4j info...");
     }
 
 

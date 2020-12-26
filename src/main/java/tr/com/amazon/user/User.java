@@ -43,6 +43,7 @@ public class User extends TestRunner {
     public void clicks(WebElement elementToBeClicked){
         elementToBeClicked.click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
+        logger.info("User clicked to element." );
     }
 
 
@@ -61,6 +62,7 @@ public class User extends TestRunner {
         boolean seenOrNot = false;
         if (elementWithString.getText().equals(str)){
             seenOrNot = true;
+            logger.info("Checked the string over the element.");
         }
         return seenOrNot;
     }
@@ -77,6 +79,7 @@ public class User extends TestRunner {
     public void types(String str , WebElement typingSpace){
         typingSpace.clear();
         typingSpace.sendKeys(str);
+        logger.info("User typed " + str);
     }
 
     public void hitsKey(int keyEvent){
@@ -84,6 +87,7 @@ public class User extends TestRunner {
             Robot robot = new Robot();
             robot.keyPress(keyEvent);
             robot.keyRelease(keyEvent);
+            logger.info("User hit key.");
         }catch (AWTException e) {
             e.printStackTrace();
         }
@@ -91,6 +95,7 @@ public class User extends TestRunner {
 
     public void hitsKey(CharSequence key , WebElement element){
         element.sendKeys(key);
+        logger.info("User hit key.");
     }
 
     public void selectsByIndex(WebElement dropDownMenu ,int index){
