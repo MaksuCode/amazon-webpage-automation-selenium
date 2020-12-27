@@ -1,7 +1,10 @@
 package tr.com.amazon.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
+import tr.com.amazon.model.Converter;
+import tr.com.amazon.model.ElementLocator;
 import tr.com.amazon.product.Product;
 
 import java.util.List;
@@ -9,14 +12,19 @@ import java.util.Random;
 
 public class ProductPage extends BasePage {
 
-    private final By addToCartButton = By.id("add-to-cart-button");
-    private final By productCount = new By.ByCssSelector("select#quantity");
+    private final String addToCartButton = "add-to-cart-button";
+    private final String productCount = "select#quantity";
+
+
+
 
     public WebElement getAddToCartButton() {
-        return driver.findElement(addToCartButton);
+        return elementLocator.findElementByLocator(addToCartButton , "ID");
     }
 
     public WebElement getProductCount() {
-        return driver.findElement(productCount);
+        return elementLocator.findElementByLocator(productCount ,"CSS");
     }
+
+
 }

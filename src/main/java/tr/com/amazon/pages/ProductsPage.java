@@ -9,11 +9,17 @@ import java.util.Random;
 
 public class ProductsPage extends BasePage {
 
-    private final By resultSelectDropDown = By.id("s-result-sort-select");
-    private final By productName = new By.ByCssSelector("span.a-size-base-plus");
+    private final String resultSelectDropDown = "s-result-sort-select";
+    private final String productName = "span.a-size-base-plus" ;
+    private final String deliveryRefinements = "#deliveryRefinements ul > li" ;
+    private final String categories = "#departments ul li";
+    private final String reviewsRefinements = "#reviewsRefinements ul li" ;
+    private final String brandRefinements = "#brandsRefinements ul li";
+    private final String priceRefinements = "#priceRefinements ul li" ;
+
 
     public WebElement getResultSelectDropDown() {
-        return driver.findElement(resultSelectDropDown);
+        return elementLocator.findElementByLocator(resultSelectDropDown , "ID");
     }
 
     public Product getRandomProduct(){
@@ -29,6 +35,26 @@ public class ProductsPage extends BasePage {
     }
 
     public List<WebElement> getAllProducts() {
-        return driver.findElements(productName);
+        return elementLocator.findElementListByLocator(productName , "CSS") ;
+    }
+
+    public List<WebElement> getDeliveryOptions(){
+        return elementLocator.findElementListByLocator(deliveryRefinements , "CSS");
+    }
+
+    public List<WebElement> getCategories() {
+        return elementLocator.findElementListByLocator(categories , "CSS") ;
+    }
+
+    public List<WebElement> getReviewsRefinements() {
+        return elementLocator.findElementListByLocator(reviewsRefinements , "CSS");
+    }
+
+    public List<WebElement> getBrandRefinements() {
+        return elementLocator.findElementListByLocator(brandRefinements , "CSS");
+    }
+
+    public List<WebElement> getPriceRefinements() {
+        return elementLocator.findElementListByLocator(priceRefinements , "CSS");
     }
 }

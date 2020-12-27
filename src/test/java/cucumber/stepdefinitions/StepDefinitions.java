@@ -189,7 +189,8 @@ public class StepDefinitions extends TestRunner {
     @And("User sorts results as {string}")
     public void userSortsResultsAs(String sortType) {
         WebElement resultSelectDropDown = productsPage.getResultSelectDropDown();
-        user.selectsByIndex(resultSelectDropDown , 0);
+        int index = cnv.strToSortIndex(sortType);
+        user.selectsByIndex(resultSelectDropDown , index);
 
     }
 
@@ -210,8 +211,14 @@ public class StepDefinitions extends TestRunner {
     }
 
     @And("User sets {int} product quantity")
-    public void userSetsProductQuantity(int count) {
+    public void userSetsProductQuantity(int count) { // TODO: 27.12.2020 Not all of the product have quantity. Fix it. 
         WebElement productCount = productPage.getProductCount();
         user.selectsByIndex(productCount , count-1);
+    }
+
+    @And("User sets delivery type")
+    public void userSetsShipmentType() {
+        WebElement deliveryType = productsPage.getDeliveryOptions().get(0);
+        user.clicks(deliveryType);
     }
 }

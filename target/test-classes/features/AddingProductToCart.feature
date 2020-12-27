@@ -14,11 +14,12 @@ Feature: Adding product to cart
     And   User types "Mouse"
     And   User hits enter button
     Then  User sees he is on the products page
+    And   User sets delivery type
     And   User sorts results as "lowest price first"
     And   User accepts cookies if exist
     And   User clicks a product
-    And   User sets 3 product quantity
+    And   User sets 2 product quantity
     Then  User sees he is on the product page
     And   User clicks add to cart button
-    Then  User sees "4" count on the basket
+    Then  User sees "3" count on the basket
     And   User clicks cart
