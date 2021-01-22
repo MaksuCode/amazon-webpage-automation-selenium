@@ -1,9 +1,9 @@
-package tr.com.amazon.model;
+package tr.com.amazon.drivermanagers;
 
 import org.openqa.selenium.WebDriver;
-import tr.com.amazon.testrunner.TestRunner;
+import tr.com.amazon.DriverInterface;
 
-public abstract class DriverManager extends TestRunner {
+public abstract class DriverManager implements DriverInterface {
 
     protected WebDriver driver;
     protected abstract void startService();
@@ -17,13 +17,10 @@ public abstract class DriverManager extends TestRunner {
         }
     }
 
-
     public WebDriver getDriver() {
         if (null == driver) {
             startService();
             createDriver();
-            logger.info("Driver started...");
-
         }
         return driver;
     }

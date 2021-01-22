@@ -186,12 +186,11 @@ public class StepDefinitions extends TestRunner {
         Assert.assertTrue("User is not is on product page!" , check);
     }
 
-    @And("User sorts results as {string}")
+    @And("User sorts products as {string}")
     public void userSortsResultsAs(String sortType) {
         WebElement resultSelectDropDown = productsPage.getResultSelectDropDown();
         int index = cnv.strToSortIndex(sortType);
         user.selectsByIndex(resultSelectDropDown , index);
-
     }
 
     @And("User accepts cookies if exist")
@@ -211,14 +210,36 @@ public class StepDefinitions extends TestRunner {
     }
 
     @And("User sets {int} product quantity")
-    public void userSetsProductQuantity(int count) { // TODO: 27.12.2020 Not all of the product have quantity. Fix it. 
+    public void userSetsProductQuantity(int count) {
         WebElement productCount = productPage.getProductCount();
         user.selectsByIndex(productCount , count-1);
     }
 
     @And("User sets delivery type")
     public void userSetsShipmentType() {
-        WebElement deliveryType = productsPage.getDeliveryOptions().get(0);
+        WebElement deliveryType = productsPage.getDeliveryOptionsList().get(0);
         user.clicks(deliveryType);
+    }
+
+    @And("User checks if the products sorted according to {string}")
+    public void userChecksIfTheProductsSortedCorrectly() {
+
+    }
+
+    @Given("User is on the products page")
+    public void userIsOnTheProductsPage() {
+    }
+
+    @And("User sorts products with minimum {string} stars")
+    public void userSortsProductsWithMinimumLowestReviewStarStar(String starCount){
+        WebElement reviewsRefinement = productsPage.getReviewsRefinements(cnv.strToStarIndex(starCount));
+        user.clicks(reviewsRefinement);
+    }
+
+    @Then("User checks if all of the products have minimum {string} stars")
+    public void userChecksIfAllOfTheProductsHaveMinimumLowestReviewStarStars(String starCount) {
+//        double star = cnv.strToDouble(starCount);
+        System.out.println("Test.");
+
     }
 }

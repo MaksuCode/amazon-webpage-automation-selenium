@@ -1,4 +1,4 @@
-package tr.com.amazon.model;
+package tr.com.amazon.drivermanagers;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
@@ -23,7 +23,6 @@ public class ChromeDriverManager extends DriverManager{
                 e.printStackTrace();
             }
         }
-
     }
 
     @Override
