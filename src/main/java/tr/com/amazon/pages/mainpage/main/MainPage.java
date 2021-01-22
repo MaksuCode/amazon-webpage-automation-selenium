@@ -1,4 +1,4 @@
-package tr.com.amazon.pages.mainpage;
+package tr.com.amazon.pages.mainpage.main;
 
 import tr.com.amazon.pages.basepage.BasePage;
 import tr.com.amazon.pages.mainpage.navigationbar.NavigationBar;

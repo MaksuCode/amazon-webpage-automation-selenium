@@ -1,4 +1,24 @@
-package tr.com.amazon.pages.mainpage.navigationbar;
+package tr.com.amazon.pages.mainpage.navigationbar.right;
 
-public class AccountAndListsPopUp {
+import tr.com.amazon.pages.basepage.BasePage;
+
+public class AccountAndListsPopUp extends BasePage {
+
+    private YourList yourList;
+    private YourAccount yourAccount ;
+
+
+
+
+
+
+    private class YourList {
+
+        public void abc(){
+
+        }
+    }
+
+    private class YourAccount {
+    }
 }

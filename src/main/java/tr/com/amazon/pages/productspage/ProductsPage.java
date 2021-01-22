@@ -1,9 +1,10 @@
-package tr.com.amazon.pages;
+package tr.com.amazon.pages.productspage;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import tr.com.amazon.model.Converter;
+import tr.com.amazon.pages.basepage.BasePage;
+
 import java.util.*;
 
 public class ProductsPage extends BasePage {

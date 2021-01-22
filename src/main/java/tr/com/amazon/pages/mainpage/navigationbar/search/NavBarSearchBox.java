@@ -1,4 +1,4 @@
-package tr.com.amazon.pages.mainpage.navigationbar;
+package tr.com.amazon.pages.mainpage.navigationbar.search;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

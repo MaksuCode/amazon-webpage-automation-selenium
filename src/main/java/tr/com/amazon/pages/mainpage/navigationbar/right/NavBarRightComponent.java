@@ -1,4 +1,4 @@
-package tr.com.amazon.pages.mainpage.navigationbar;
+package tr.com.amazon.pages.mainpage.navigationbar.right;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +9,7 @@ import tr.com.amazon.pages.basepage.BasePage;
  */
 public class NavBarRightComponent extends BasePage {
 
-    private final LanugageSelectionBox lanugageSelectionBox;
+    private final LanguageSelectionBox languageSelectionBox;
     private final AccountAndListsBox accountAndListsBox ;
 
     @FindBy(id = "nav-orders")
@@ -20,12 +20,12 @@ public class NavBarRightComponent extends BasePage {
 
     public NavBarRightComponent() {
         super();
-        this.lanugageSelectionBox = new LanugageSelectionBox();
+        this.languageSelectionBox = new LanguageSelectionBox();
         this.accountAndListsBox = new AccountAndListsBox();
     }
 
-    public LanugageSelectionBox languageSelectionBox() {
-        return lanugageSelectionBox;
+    public LanguageSelectionBox languageSelectionBox() {
+        return languageSelectionBox;
     }
 
     public AccountAndListsBox accountAndListsBox() {

@@ -1,8 +1,9 @@
 package tr.com.amazon.model;
 
-public enum ElementLocatorType {
+public enum LocatorType {
     ID ,
     CSS ,
     XPATH,
     CLASS ,
+    NAME ,
 }

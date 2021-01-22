@@ -1,4 +1,4 @@
-package tr.com.amazon.drivermanagers;
+package tr.com.amazon.drivermanager;
 
 
 public class DriverManagerFactory {

@@ -1,6 +1,5 @@
-package tr.com.amazon.pages.mainpage.navigationbar;
+package tr.com.amazon.pages.mainpage.navigationbar.right;
 
-import io.cucumber.java.en_old.Ac;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;

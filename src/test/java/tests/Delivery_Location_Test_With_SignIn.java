@@ -1,17 +1,14 @@
+package tests;
+
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 
 import org.junit.runners.MethodSorters;
-import tr.com.amazon.pages.mainpage.navigationbar.LocationSelectionPopUp;
-import tr.com.amazon.pages.mainpage.MainPage;
-import tr.com.amazon.pages.signinpage.SignInPage;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class Delivery_Location_Test_With_SignIn {
+public class Delivery_Location_Test_With_SignIn extends BaseTest{
 
-    MainPage mainPage = new MainPage();
-    LocationSelectionPopUp locationSelectionPopUp = new LocationSelectionPopUp();
-    SignInPage signInPage = new SignInPage();
+
 
     @org.junit.Test
 //    @Order(1)
@@ -71,6 +68,8 @@ public class Delivery_Location_Test_With_SignIn {
     public void t9_Click_sign_in_button_on_sign_in_page(){
         signInPage.clickSignInButton();
     }
+
+
 
 
 

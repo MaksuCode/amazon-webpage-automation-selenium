@@ -1,4 +1,0 @@
-base\BaseTest.class
-testcases\LoginTest.class
-cucumber\stepdefinitions\StepDefinitions.class
-testcases\AddProductToBasket.class

@@ -1,4 +1,4 @@
-package tr.com.amazon.drivermanagers;
+package tr.com.amazon.drivermanager;
 
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerDriverService;

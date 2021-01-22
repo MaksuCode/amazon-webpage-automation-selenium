@@ -1,5 +1,5 @@
-@LoginTest
-Feature: Login Test
+@Login
+Feature: Login Test Scenarios
 
   Scenario: Login with invalid mail address
 

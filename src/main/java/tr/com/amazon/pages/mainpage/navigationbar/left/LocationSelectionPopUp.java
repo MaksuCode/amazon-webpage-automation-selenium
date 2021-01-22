@@ -1,11 +1,11 @@
-package tr.com.amazon.pages.mainpage.navigationbar;
+package tr.com.amazon.pages.mainpage.navigationbar.left;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import tr.com.amazon.pages.basepage.BasePage;
 import tr.com.amazon.pages.signinpage.SignInPage;
-import tr.com.amazon.pages.mainpage.MainPage;
+import tr.com.amazon.pages.mainpage.main.MainPage;
 
 /**
  * This is the pop-up which is opened after clicking to "Deliver to ..." next to Amazon Icon

@@ -1,21 +1,18 @@
 package tr.com.amazon.user;
 
-import io.cucumber.java.eo.Se;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import tr.com.amazon.pages.BasePage;
-import tr.com.amazon.testrunner.TestRunner;
-
+import tr.com.amazon.drivermanager.DriverInterface;
+import tr.com.amazon.model.Converter;
+import tr.com.amazon.pages.basepage.BasePage;
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 
-public class User extends TestRunner {
+public class User implements DriverInterface {
 
+    BasePage basePage = new BasePage();
+    Converter cnv = new Converter();
     private String mailAddress = "mustafaksu4@gmail.com";
     private String password = "kara.OLUK54";
 
@@ -36,14 +33,25 @@ public class User extends TestRunner {
             case "LoginPage":
                 url = "";
                 break;
+            case "ProductsPage" :
+                url = "";
+                break;
         }
         driver.navigate().to(url);
     }
 
     public void clicks(WebElement elementToBeClicked){
+        try {
+//            WebElement acceptCookiesButton = basePage.getAccepCookiesButton(); //todo : düzelt.
+//            acceptCookiesButton.click();
+//            logger.info("User accepted cookies.");
+        }catch (Exception e){
+//            logger.info("Cookies not present!");
+        }
+        String element = cnv.elementStringModifier(elementToBeClicked.toString(), ">");
         elementToBeClicked.click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
-        logger.info("User clicked to element." );
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS) ;
+//        logger.info("User clicked to element " + element);
     }
 
 
@@ -62,7 +70,7 @@ public class User extends TestRunner {
         boolean seenOrNot = false;
         if (elementWithString.getText().equals(str)){
             seenOrNot = true;
-            logger.info("Checked the string over the element.");
+//            logger.info("Checked the string over the element.");
         }
         return seenOrNot;
     }
@@ -79,7 +87,7 @@ public class User extends TestRunner {
     public void types(String str , WebElement typingSpace){
         typingSpace.clear();
         typingSpace.sendKeys(str);
-        logger.info("User typed " + str);
+//        logger.info("User typed '" + str + "'");
     }
 
     public void hitsKey(int keyEvent){
@@ -87,7 +95,7 @@ public class User extends TestRunner {
             Robot robot = new Robot();
             robot.keyPress(keyEvent);
             robot.keyRelease(keyEvent);
-            logger.info("User hit key.");
+//            logger.info("User hit key.");
         }catch (AWTException e) {
             e.printStackTrace();
         }
@@ -95,7 +103,7 @@ public class User extends TestRunner {
 
     public void hitsKey(CharSequence key , WebElement element){
         element.sendKeys(key);
-        logger.info("User hit key.");
+//        logger.info("User hit key '" +key.toString()+ "'");
     }
 
     public void selectsByIndex(WebElement dropDownMenu ,int index){

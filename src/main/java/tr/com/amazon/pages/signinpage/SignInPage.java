@@ -1,12 +1,13 @@
-package tr.com.amazon.pages;
+package tr.com.amazon.pages.signinpage;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import tr.com.amazon.pages.basepage.BasePage;
+import tr.com.amazon.pages.mainpage.main.MainPage;
 
 
-public class SignInPage extends BasePage{
+public class SignInPage extends BasePage {
 
     @FindBy(css = "div.a-row.a-spacing-base input")
     private WebElement mailAddressSpace ;
@@ -52,8 +53,9 @@ public class SignInPage extends BasePage{
         passwordSpace.sendKeys(password);
     }
 
-    public void clickSignInButton(){
+    public MainPage clickSignInButton(){
         click(signInSubmitButton);
+        return new MainPage();
     }
 
     public void clickCountinueButton(){

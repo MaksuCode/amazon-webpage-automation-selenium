@@ -1,14 +1,14 @@
-package tr.com.amazon.pages;
+package tr.com.amazon.pages.basepage;
 
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import tr.com.amazon.testrunner.TestRunner;
+import tr.com.amazon.drivermanager.DriverInterface;
 
 
-public class BasePage extends TestRunner  {
+public class BasePage implements DriverInterface {
 
 
     public BasePage() {

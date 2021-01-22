@@ -1,9 +1,9 @@
-package tr.com.amazon.pages.mainpage.navigationbar;
+package tr.com.amazon.pages.mainpage.navigationbar.left;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import tr.com.amazon.pages.basepage.BasePage;
-import tr.com.amazon.pages.mainpage.MainPage;
+import tr.com.amazon.pages.mainpage.main.MainPage;
 
 /**
  * Left component of the navigation bar which is consisted of Amdzon Icon and Delivery Location.

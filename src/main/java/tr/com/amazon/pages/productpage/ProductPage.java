@@ -1,9 +1,8 @@
-package tr.com.amazon.pages;
+package tr.com.amazon.pages.productpage;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.*;
-
-import java.util.List;
+import tr.com.amazon.pages.basepage.BasePage;
 
 public class ProductPage extends BasePage {
 

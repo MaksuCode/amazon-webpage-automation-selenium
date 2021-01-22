@@ -1,7 +1,6 @@
-package tr.com.amazon.drivermanagers;
+package tr.com.amazon.drivermanager;
 
 import org.openqa.selenium.WebDriver;
-import tr.com.amazon.DriverInterface;
 
 public abstract class DriverManager implements DriverInterface {
 

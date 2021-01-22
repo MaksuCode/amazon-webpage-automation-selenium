@@ -1,9 +1,10 @@
-package tr.com.amazon.pages;
+package tr.com.amazon.pages.cartpage;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import tr.com.amazon.pages.basepage.BasePage;
 
 public class CartPage extends BasePage {
 

@@ -1,4 +1,4 @@
-package tr.com.amazon.drivermanagers;
+package tr.com.amazon.drivermanager;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
