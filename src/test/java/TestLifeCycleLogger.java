@@ -2,7 +2,7 @@ import org.apache.logging.log4j.core.Logger;
 
 //@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
-interface TestLifeCycleLogger {
+interface TestLifeCycleLogger { //todo : Implement it!
 
 //    Logger logger = Logger.getLogger(TestLifeCycleLogger.class.getName());
 //

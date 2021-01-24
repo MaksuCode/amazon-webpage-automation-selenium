@@ -1,9 +1,9 @@
 package tr.com.amazon.pages.mainpage.navigationbar.right;
 
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,20 +17,56 @@ public class LanguageSelectionBox extends BasePage {
     private WebElement itSelf;
 
     @FindBy(css = "#nav-flyout-icp span.nav-text i.icp-radio")
-    private List<WebElement> languageRadioButtons ;
+    private WebElement languageRadioButtons ;
 
+    @FindBy(css = "#nav-flyout-icp span.nav-text i.icp-radio.icp-radio-active")
+    private WebElement activeLanguageRadioButton;
 
-    public LanguageSelectionBox hoverOverItSelf(){
+    private List<WebElement> getAllLanguages(){
+        return driver.findElements(new By.ByCssSelector("#nav-flyout-icp span.nav-text i.icp-radio"));
+    }
+
+    public LanguageSelectionBox hoverOver(){
         Actions actions = new Actions(driver);
         actions.moveToElement(itSelf).perform();
+        WebDriverWait wait = new WebDriverWait(driver , 5);
+        wait.until(ExpectedConditions.visibilityOfAllElements(languageRadioButtons));
         return this;
     }
 
     public void selectLanguageByIndex(int index){
-        WebDriverWait wait = new WebDriverWait(driver , 5);
-        wait.until(ExpectedConditions.visibilityOfAllElements(languageRadioButtons));
-        languageRadioButtons.get(index).click();
+        getAllLanguages().get(index).click();
     }
 
+    public LanguageSelectionBox selectLanguageByLanguageCode(String CODE){
+        int index = 0;
+        switch (CODE) {
+            case "EN" :
+                index = 0 ;
+                break;
+            case "ES" :
+                index = 1 ;
+                break;
+            case "ZH" :
+                index = 2 ;
+                break;
+            case "DE" :
+                index = 3 ;
+                break;
+        }
+        getAllLanguages().get(index).click();
+        return this;
+    }
 
+    public boolean checkLanguage(String CODE) {
+        hoverOver();
+        WebElement parent = (WebElement) ((JavascriptExecutor) driver)
+                .executeScript("return arguments[0].parentNode;", activeLanguageRadioButton);
+        return getLanguageCode(parent.getText()).equals(CODE);
+    }
+
+    private String getLanguageCode(String str){
+        int length = str.length();
+        return str.substring(length-2 , length);
+    }
 }

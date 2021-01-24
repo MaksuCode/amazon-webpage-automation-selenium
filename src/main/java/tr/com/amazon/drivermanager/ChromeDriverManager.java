@@ -5,6 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ChromeDriverManager extends DriverManager{
 
@@ -35,6 +37,12 @@ public class ChromeDriverManager extends DriverManager{
     protected void createDriver() {
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         ChromeOptions options = new ChromeOptions();
+
+        //Test language
+//        Map<String, Object> prefs = new HashMap<>();
+//        prefs.put("intl.accept_languages", "de-DE");
+//        options.setExperimentalOption("prefs", prefs);
+
         options.addArguments("test-type");
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         driver = new ChromeDriver(chService, capabilities);

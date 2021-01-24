@@ -1,7 +1,12 @@
+package testrunner;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import tests.Changing_Language_On_Main_Page;
 import tr.com.amazon.drivermanager.DriverInterface;
 
@@ -21,6 +26,7 @@ public class TestRunner implements DriverInterface {
     public static void tearDown(){
 //        driverManager.quitDriver();
     }
+
 
 
 

@@ -13,7 +13,7 @@
 //
 //import java.util.List;
 //
-//public class StepDefinitions extends TestRunner {
+//public class StepDefinitions extends testrunner.TestRunner {
 //
 //    User user = new User();
 //    String mailAddress = user.getMailAddress();

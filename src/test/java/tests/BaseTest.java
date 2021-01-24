@@ -8,6 +8,7 @@ import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 import tr.com.amazon.pages.mainpage.main.MainPage;
 import tr.com.amazon.pages.mainpage.navigationbar.left.LocationSelectionPopUp;
+import tr.com.amazon.pages.mainpage.navigationbar.right.LanguageSelectionBox;
 import tr.com.amazon.pages.signinpage.SignInPage;
 
 //@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -18,4 +19,5 @@ public class BaseTest {
     MainPage mainPage = new MainPage();
     LocationSelectionPopUp locationSelectionPopUp = new LocationSelectionPopUp();
     SignInPage signInPage = new SignInPage();
+    LanguageSelectionBox languageSelectionBox = new LanguageSelectionBox();
 }
