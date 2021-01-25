@@ -3,15 +3,11 @@ package testrunner;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import tests.Changing_Language_On_Main_Page;
 import tr.com.amazon.drivermanager.DriverInterface;
+import tr.com.amazon.pages.mainpage.menu.MenuBar;
 
-@RunWith(Suite.class)
-@Suite.SuiteClasses({ Changing_Language_On_Main_Page.class})
+//@RunWith(Suite.class)
+//@Suite.SuiteClasses({ Delivery_Location_Test_With_SignIn.class})
 public class TestRunner implements DriverInterface {
 
 
@@ -25,6 +21,13 @@ public class TestRunner implements DriverInterface {
     @AfterClass
     public static void tearDown(){
 //        driverManager.quitDriver();
+    }
+
+
+    @Test
+    public void test(){
+        MenuBar menuBar = new MenuBar();
+        menuBar.clickHamburgerMenu();
     }
 
 
