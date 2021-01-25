@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tr.com.amazon.pages.basepage.BasePage;
+import tr.com.amazon.scripts.JsScripts;
 
 import java.util.List;
 
@@ -61,7 +62,7 @@ public class LanguageSelectionBox extends BasePage {
     public boolean checkLanguage(String CODE) {
         hoverOver();
         WebElement parent = (WebElement) ((JavascriptExecutor) driver)
-                .executeScript("return arguments[0].parentNode;", activeLanguageRadioButton);
+                .executeScript(JsScripts.PARENT_OF_ELEMENT.toString() , activeLanguageRadioButton);
         return getLanguageCode(parent.getText()).equals(CODE);
     }
 

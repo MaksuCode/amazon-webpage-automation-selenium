@@ -1,8 +1,11 @@
 package tests;
 
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Changing_Language_On_Main_Page extends BaseTest{
 
     private final String language = "DE" ;

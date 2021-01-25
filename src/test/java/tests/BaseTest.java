@@ -13,7 +13,7 @@ import tr.com.amazon.pages.signinpage.SignInPage;
 
 //@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 //@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BaseTest {
 
     MainPage mainPage = new MainPage();
