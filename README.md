@@ -10,15 +10,17 @@
 * POM
 * PageFactory Pattern
 * WebDriverFactory Pattern
-* Junit 4
-* Cucumber and Gherkin (Changes according to practice target)
+* Junit 5
+* Cucumber and Gherkin (Avaliable)
 
 
 ###Tasks
--[ ] Implement TestLifeCyleLogger.class
--[ ] Implement Junit 5 
+-[x] Implement TestLifeCyleLogger.class
+-[x] Implement Junit 5 
+-[x] Fix log4j , writing logs to a txt file
 -[ ] Refactor page classes
--[ ] Fix log4j , writin logs to a txt file
+-[ ] Taking screenshots when an error occurs
+-[ ] Implement parametric(Browser) design
 
 
   
