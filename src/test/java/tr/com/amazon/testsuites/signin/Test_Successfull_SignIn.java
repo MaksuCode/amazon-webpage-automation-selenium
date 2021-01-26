@@ -1,61 +1,75 @@
-package tests;
+package tr.com.amazon.testsuites.signin;
 
 import org.junit.Assert;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
-import org.junit.runners.MethodSorters;
+import org.junit.jupiter.api.*;
+import tr.com.amazon.testsuites.BaseTest;
 
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class SignInTest extends BaseTest {
+public class Test_Successfull_SignIn extends BaseTest {
 
     @Test
-    public void step1_Click_sign_in_box(){
+    @Order(1)
+    public void click_sign_in_box(){
         signInPage =mainPage.navigationBar()
                             .navBarRightComponent()
                             .accountAndListsBox()
                             .clickItself();
+//        logger.info("Clicked to sign in box.");
     }
 
     @Test
-    public void step2_See_Sign_in_page(){
+    @Order(2)
+    public void see_Sign_in_page(){
         boolean isEnabled = signInPage.mailAddressSpace().isEnabled();
         Assert.assertTrue("Not seen it!" , isEnabled);
+//        logger.info("Checked user is on sign in page.");
     }
 
     @Test
-    public void step3_Set_mail_address(){
+    @Order(3)
+    public void set_mail_address(){
         signInPage.setMailAddress("mustafaksu4@gmail.com");
+//        logger.info("Set mail address.");
     }
 
     @Test
-    public void step4_Click_countinue_button(){
+    @Order(4)
+    public void click_countinue_button(){
         signInPage.clickCountinueButton();
+//        logger.info("Clicked countinue button.");
     }
 
     @Test
-    public void step5_See_password_space(){
+    @Order(5)
+    public void see_password_space(){
         boolean isEnabled = signInPage.passwordSpace().isEnabled();
         Assert.assertTrue("Not ok!" , isEnabled);
+//        logger.info("Checked user is on the correct page.");
     }
 
     @Test
-    public void step6_Set_password (){
+    @Order(6)
+    public void set_password (){
         signInPage.setPassword("kara.OLUK54");
+//        logger.info("Set password.");
     }
 
     @Test
-    public void step7_Click_sign_in_button_on_sign_in_page(){
+    @Order(7)
+    public void click_sign_in_button_on_sign_in_page(){
         mainPage = signInPage.clickSignInButton();
+//        logger.info("Clicked sign in button");
     }
 
     @Test
-    public void step8_See_Amazon_icon_on_main_page(){
+    @Order(8)
+    public void see_Amazon_icon_on_main_page(){
         boolean isSeen = mainPage.navigationBar()
                                  .navBarLeftComponent()
                                  .amazonIcon()
                                  .isDisplayed();
         Assert.assertTrue("Not on main page!" , isSeen);
+//        logger.info("Checked user is on the main page.");
     }
 
 

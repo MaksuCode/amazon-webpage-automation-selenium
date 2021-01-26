@@ -1,4 +1,4 @@
-//package cucumber.stepdefinitions;
+//package tr.com.amazon.stepdefinitions;
 //
 //import io.cucumber.java.en.And;
 //import io.cucumber.java.en.Given;
@@ -13,7 +13,7 @@
 //
 //import java.util.List;
 //
-//public class StepDefinitions extends testrunner.TestRunner {
+//public class StepDefinitions extends tr.com.amazon.testrunner.TestRunner {
 //
 //    User user = new User();
 //    String mailAddress = user.getMailAddress();
