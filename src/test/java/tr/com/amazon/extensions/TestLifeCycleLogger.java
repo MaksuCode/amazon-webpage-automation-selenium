@@ -3,20 +3,20 @@ package tr.com.amazon.extensions;
 import org.junit.jupiter.api.*;
 import tr.com.amazon.model.Log;
 
-
 public interface TestLifeCycleLogger  {
 
     Log logger = new Log();
 
     @BeforeAll
-    default void beforeAllTests() {
+    default void beforeAllTests(TestInfo testInfo) {
         logger.info("#############################################################");
-        logger.info("Test initiated...");
+        logger.info(testInfo.getTestClass().get().getSimpleName() + " initated...");
+
     }
 
     @AfterAll
-    default void afterAllTests() {
-        logger.info("Test finished...");
+    default void afterAllTests(TestInfo testInfo) {
+        logger.info(testInfo.getTestClass().get().getSimpleName() + " finished...");
         logger.info("#############################################################");
     }
 

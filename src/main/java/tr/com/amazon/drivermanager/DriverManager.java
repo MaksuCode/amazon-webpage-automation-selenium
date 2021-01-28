@@ -2,7 +2,7 @@ package tr.com.amazon.drivermanager;
 
 import org.openqa.selenium.WebDriver;
 
-public abstract class DriverManager implements DriverInterface {
+public abstract class DriverManager /*implements DriverInterface */{
 
     protected WebDriver driver;
     protected abstract void startService();

@@ -19,7 +19,8 @@ public class Log {
         logger.warn(str);
     }
 
-    public void error(String str){
+    public void error(String name){
+        String str = String.format("Error occured during [%s] " , name);
         logger.error(str);
     }
 

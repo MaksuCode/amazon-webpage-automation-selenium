@@ -39,7 +39,7 @@ public class LanguageSelectionBox extends BasePage {
         getAllLanguages().get(index).click();
     }
 
-    public LanguageSelectionBox selectLanguageByLanguageCode(String CODE){
+    public LanguageSelectionBox selectLanguageByCode(String CODE){
         int index = 0;
         switch (CODE) {
             case "EN" :

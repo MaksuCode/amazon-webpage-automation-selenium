@@ -10,19 +10,19 @@ public class Test_Changing_Language_On_Main_Page extends BaseTest {
     private final String language = "DE" ;
 
     @Test
-    @Order(1)
+    @Order(2)
     public void select_language() {
         languageSelectionBox =mainPage.navigationBar()
                                       .navBarRightComponent()
                                       .languageSelectionBox()
                                       .hoverOver()
-                                      .selectLanguageByLanguageCode(language);
+                                      .selectLanguageByCode(language);
     }
 
     @Test
-    @Order(2)
+    @Order(3)
     public void see_if_language_selected(){
-        boolean isSelected = languageSelectionBox.checkLanguage(language);
+        boolean isSelected = languageSelectionBox.checkLanguage("ES");
         Assert.assertTrue("Radio button not selected" , isSelected);
     }
 

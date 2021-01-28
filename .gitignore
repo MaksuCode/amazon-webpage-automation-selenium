@@ -1,5 +1,4 @@
 .idea
-/target
+/target/
 #For development purposes.
-/src/test/java/tr.com.amazon.testrunner/TestRunner.java
 logfile.log

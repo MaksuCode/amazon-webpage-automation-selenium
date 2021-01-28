@@ -3,14 +3,10 @@ package tr.com.amazon.extensions;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import tr.com.amazon.model.Log;
-
 import java.lang.reflect.Method;
 
-public class TimingExtension implements BeforeTestExecutionCallback , AfterTestExecutionCallback {
+public class TimingExtension implements BeforeTestExecutionCallback , AfterTestExecutionCallback ,TestLifeCycleLogger {
 
-
-    private static final Log logger = new Log();
     private static final String START_TIME = "start time";
 
     @Override
