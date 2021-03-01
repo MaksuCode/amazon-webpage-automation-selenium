@@ -11,10 +11,10 @@ public class DriverManagerFactory {
             case CHROME:
                 driverManager = new ChromeDriverManager();
                 break;
-            case FIREFOX:
+            case GECKODRIVER:
                 driverManager = new FirefoxDriverManager();
                 break;
-            case IE:
+            case IEDRIVERSERVER:
                 driverManager = new InternetExplorerDriverManager();
                 break;
         }

@@ -1,6 +1,5 @@
 package tr.com.amazon.product;
 
-import com.sun.scenario.effect.impl.prism.PrImage;
 
 public class Product {
 

@@ -24,6 +24,9 @@ public class Test_Changing_Language_On_Main_Page extends BaseTest {
     public void see_if_language_selected(){
         boolean isSelected = languageSelectionBox.checkLanguage(language);
         Assert.assertTrue("Radio button not selected" , isSelected);
+
+
+
     }
 
 }

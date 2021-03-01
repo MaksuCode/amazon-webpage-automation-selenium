@@ -15,7 +15,7 @@ public class InternetExplorerDriverManager extends DriverManager{
         if (ieService == null){
             try {
                 ieService = new InternetExplorerDriverService.Builder()
-                        .usingDriverExecutable(new File("drivers/IEDriverServer.exe"))
+                        .usingDriverExecutable(new File(getDriverPathName(DriverType.IEDRIVERSERVER)))
                         .usingAnyFreePort()
                         .build();
                 ieService.start();

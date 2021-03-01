@@ -24,4 +24,15 @@ public abstract class DriverManager implements DriverInterface {
         return driver;
     }
 
+    protected String getDriverPathName(DriverType driverType){
+        String osName = System.getProperty("os.name") ;
+        String path = "drivers/" + driverType.name().toLowerCase() + "driver";
+        if (osName.contains("WINDOWS")){
+            path = path + ".exe" ;
+        }
+        return path ;
+    }
+
+
+
 }

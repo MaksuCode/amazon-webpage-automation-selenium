@@ -17,7 +17,7 @@ public class FirefoxDriverManager extends DriverManager{
         if (geckoDriver == null){
             try {
                 geckoDriver = new GeckoDriverService.Builder()
-                        .usingDriverExecutable(new File("drivers/geckodriver.exe"))
+                        .usingDriverExecutable(new File(getDriverPathName(DriverType.GECKODRIVER)))
                         .usingAnyFreePort()
                         .build();
                 geckoDriver.start();
@@ -32,7 +32,6 @@ public class FirefoxDriverManager extends DriverManager{
         if (geckoDriver != null && geckoDriver.isRunning()){
             geckoDriver.stop();
         }
-
     }
 
     @Override
@@ -42,6 +41,5 @@ public class FirefoxDriverManager extends DriverManager{
         options.addArguments("test-type");
         capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS , options);
         driver = new FirefoxDriver(geckoDriver , capabilities);
-
     }
 }
