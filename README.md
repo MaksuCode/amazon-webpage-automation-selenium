@@ -15,10 +15,10 @@
 
 
 ### Tasks
--[x] Implement TestLifeCyleLogger.class
--[x] Implement Junit 5 
--[x] Refactor page classes
--[x] Fix log4j , writin logs to a txt file
+- [x] Implement TestLifeCyleLogger.class
+- [x] Implement Junit 5 
+- [x] Refactor page classes
+- [x] Fix log4j , writin logs to a txt file
 
 
   
