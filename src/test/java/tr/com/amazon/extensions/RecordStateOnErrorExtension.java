@@ -19,6 +19,7 @@ public class RecordStateOnErrorExtension implements LifecycleMethodExecutionExce
 
     @Override
     public void handleAfterEachMethodExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
+        System.out.println("Test screenshot!");
         memoryDumpForFurtherInvestigation("Failure recorded during test cleanup");
         throw throwable ;
     }

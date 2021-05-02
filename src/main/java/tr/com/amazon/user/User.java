@@ -8,7 +8,9 @@ import tr.com.amazon.pages.basepage.BasePage;
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
-
+/*
+Deprecated.But can be used later according to project requirements.
+ */
 public class User implements DriverInterface {
 
     BasePage basePage = new BasePage();

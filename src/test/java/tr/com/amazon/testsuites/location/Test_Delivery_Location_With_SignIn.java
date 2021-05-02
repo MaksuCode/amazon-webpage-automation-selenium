@@ -57,12 +57,12 @@ public class Test_Delivery_Location_With_SignIn extends BaseTest {
     @Test
     @Order(8)
     public void set_password (){
-        signInPage.setPassword("kara.OLUK54");
+        signInPage.setPassword("ASDXDF34RCFSX");
     }
 
     @Test
     @Order(9)
-    public void t9_Click_sign_in_button_on_sign_in_page(){
+    public void click_sign_in_button_on_sign_in_page(){
         signInPage.clickSignInButton();
     }
 

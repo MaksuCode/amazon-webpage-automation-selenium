@@ -22,7 +22,6 @@ public class BasePage implements DriverInterface {
         }catch (Exception e){
             e.printStackTrace();
         }
-
         element.click();
     }
 

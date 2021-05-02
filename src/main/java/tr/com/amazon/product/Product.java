@@ -1,6 +1,8 @@
 package tr.com.amazon.product;
 
-
+/*
+Deprecated.But can be used later according to project requirements.
+ */
 public class Product {
 
     private final String productUrl ;
